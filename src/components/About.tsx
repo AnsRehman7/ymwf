@@ -1,4 +1,11 @@
 import { useReveal } from '@/hooks/useReveal'
+import { foundation, founder } from '@/data/content'
+
+const FACTS = [
+  { value: 'Lahore', label: 'Where we work' },
+  { value: '04', label: 'Areas of focus' },
+  { value: '2026', label: 'MoU signed with UMT' },
+]
 
 export function About() {
   const ref = useReveal<HTMLDivElement>()
@@ -9,50 +16,40 @@ export function About() {
         <div ref={ref} className="reveal grid md:grid-cols-[0.9fr_1.1fr] gap-14 items-start">
           <div>
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--terracotta)]">
-              How we started
+              Who we are
             </span>
-            <h1 className="font-display mt-4 text-4xl md:text-[3.2rem] leading-[1.08] text-[var(--forest-deep)]">
-             Every Great Journey Has a Beginning.
-            </h1>
+            <h2 className="font-display mt-4 text-4xl md:text-[3.2rem] leading-[1.08] text-[var(--forest-deep)]">
+              Every great journey has a beginning.
+            </h2>
+            <p className="mt-6 text-sm leading-relaxed text-[var(--ink)]/60">
+              {foundation.teamNote}
+            </p>
           </div>
 
           <div className="space-y-6 text-[1.02rem] leading-relaxed text-[var(--ink)]/78 md:pt-3">
-            <p>
-              In 2016, Rana Ahsan and four friends began tutoring eleven children in
-              her family's garage in Garden Town, because the government school two
-              streets over had one teacher for ninety students. Within a year, parents
-              from three other neighborhoods were asking them to come there too.
-            </p>
-            <p>
-              Young Merit Welfare Foundation was registered in 2018 to formalize what
-              was already happening — volunteer teachers, a rotating fund for medicine
-              and ration, and a habit of showing up on the same days each week whether
-              or not there was a camera around to notice.
-            </p>
-            <p>
-              We are still small on purpose. Four programs, four neighborhoods, and a
-              board that reviews every rupee spent at a kitchen table in Garden Town,
-              not a boardroom.
-            </p>
-            <div className="flex items-center gap-8 pt-4 border-t border-[var(--line)]">
-              <div>
-                <div className="font-display text-3xl text-[var(--forest)]">2018</div>
-                <div className="text-xs text-[var(--ink)]/55 uppercase tracking-wide mt-1">
-                  First tutoring circle
-                </div>
+            {foundation.missionLong.map((paragraph) => (
+              <p key={paragraph.slice(0, 32)}>{paragraph}</p>
+            ))}
+
+            <div className="rounded-2xl border border-[var(--line)] bg-[var(--cream-dim)] px-6 py-5">
+              <div className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--ink)]/45">
+                Founded and led by
               </div>
-              <div>
-                <div className="font-display text-3xl text-[var(--forest)]">2020</div>
-                <div className="text-xs text-[var(--ink)]/55 uppercase tracking-wide mt-1">
-                  Formally registered
-                </div>
+              <div className="mt-2 font-display text-2xl text-[var(--forest-deep)]">
+                {founder.name}
               </div>
-              <div>
-                <div className="font-display text-3xl text-[var(--forest)]">06</div>
-                <div className="text-xs text-[var(--ink)]/55 uppercase tracking-wide mt-1">
-                  Active programs today
+              <div className="text-sm text-[var(--ink)]/60">{founder.role}</div>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-8 pt-4 border-t border-[var(--line)]">
+              {FACTS.map((fact) => (
+                <div key={fact.label}>
+                  <div className="font-display text-3xl text-[var(--forest)]">{fact.value}</div>
+                  <div className="text-xs text-[var(--ink)]/55 uppercase tracking-wide mt-1">
+                    {fact.label}
+                  </div>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>

@@ -1,7 +1,8 @@
 import { useReveal } from '@/hooks/useReveal'
-import { programs } from '@/data/content'
+import { pillars } from '@/data/content'
+import type { Pillar } from '@/data/content'
 
-function ProgramCard({ program, index }: { program: (typeof programs)[number]; index: number }) {
+function PillarCard({ pillar, index }: { pillar: Pillar; index: number }) {
   const ref = useReveal<HTMLDivElement>()
   const reversed = index % 2 === 1
 
@@ -19,13 +20,23 @@ function ProgramCard({ program, index }: { program: (typeof programs)[number]; i
         }`}
       >
         <div className="absolute inset-0 flex items-center justify-center">
-          <span className="font-display text-[6.5rem] text-[var(--cream)]/15 select-none">
-            {program.urduTag}
+          <span
+            lang="ur"
+            dir="rtl"
+            className="font-display text-[6.5rem] leading-none text-[var(--cream)]/15 select-none"
+          >
+            {pillar.urduTag}
           </span>
         </div>
         <div className="absolute bottom-0 inset-x-0 p-7">
-          <div className="font-display text-5xl text-[var(--cream)]">{program.stat}</div>
-          <div className="text-[var(--cream)]/75 text-sm mt-1">{program.statLabel}</div>
+          <div
+            lang="ur"
+            dir="rtl"
+            className="font-display text-5xl leading-tight text-[var(--cream)]"
+          >
+            {pillar.urduTag}
+          </div>
+          <div className="text-[var(--cream)]/75 text-sm mt-2">{pillar.name}</div>
         </div>
         <span className="absolute top-6 right-6 text-xs uppercase tracking-[0.18em] text-[var(--cream)]/60">
           0{index + 1}
@@ -34,13 +45,13 @@ function ProgramCard({ program, index }: { program: (typeof programs)[number]; i
 
       <div>
         <h3 className="font-display text-2xl md:text-3xl text-[var(--forest-deep)]">
-          {program.name}
+          {pillar.name}
         </h3>
         <p className="mt-4 text-[1.02rem] leading-relaxed text-[var(--ink)]/78">
-          {program.summary}
+          {pillar.summary}
         </p>
         <p className="mt-4 text-[0.95rem] leading-relaxed text-[var(--ink)]/60">
-          {program.detail}
+          {pillar.detail}
         </p>
       </div>
     </div>
@@ -55,16 +66,16 @@ export function Programs() {
       <div className="max-w-6xl mx-auto px-6">
         <div ref={headingRef} className="reveal max-w-xl">
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--terracotta)]">
-            Where the work happens
+            What we do
           </span>
           <h2 className="font-display mt-4 text-4xl md:text-[3.2rem] leading-[1.08] text-[var(--forest-deep)]">
-            Four programs, four neighborhoods.
+            Four areas, one purpose.
           </h2>
         </div>
 
         <div className="mt-6">
-          {programs.map((program, index) => (
-            <ProgramCard key={program.id} program={program} index={index} />
+          {pillars.map((pillar, index) => (
+            <PillarCard key={pillar.id} pillar={pillar} index={index} />
           ))}
         </div>
       </div>

@@ -1,25 +1,18 @@
-const AREAS = [
-  'Shahdara',
-  'Baghbanpura',
-  'Ravi Road',
-  'Kot Lakhpat',
-  'Garden Town',
-  'Ichhra',
-  'Township',
-  'Androon Shehr',
-]
+import { contact, foundation, pillars, socials } from '@/data/content'
 
 export function Footer() {
+  const marqueeItems = pillars.map((pillar) => pillar.name)
+
   return (
     <footer className="relative bg-[var(--forest-deep)] text-[var(--cream)] pt-16 pb-8 overflow-hidden">
       <div className="overflow-hidden border-y border-[var(--cream)]/10 py-4 mb-14">
         <div className="flex whitespace-nowrap marquee-track">
-          {[...AREAS, ...AREAS].map((area, i) => (
+          {[...marqueeItems, ...marqueeItems].map((item, i) => (
             <span
               key={i}
               className="mx-6 font-display text-lg text-[var(--cream)]/35 uppercase tracking-widest"
             >
-              {area} ·
+              {item} ·
             </span>
           ))}
         </div>
@@ -31,12 +24,24 @@ export function Footer() {
             <span className="flex h-9 w-9 items-center justify-center rounded-full bg-[var(--marigold)] text-[var(--forest-deep)] font-display text-sm">
               YM
             </span>
-            <span className="font-display text-lg">Young Merit Welfare Foundation</span>
+            <span className="font-display text-lg">{foundation.name}</span>
           </div>
           <p className="mt-4 text-sm text-[var(--cream)]/55 max-w-sm leading-relaxed">
-            A community welfare foundation based in Garden Town, Lahore, running
-            education, health, and relief programs since 2016.
+            {foundation.mission}
           </p>
+          <div className="mt-6 flex flex-wrap gap-4">
+            {socials.map((social) => (
+              <a
+                key={social.label}
+                href={social.href}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="text-sm text-[var(--cream)]/70 hover:text-[var(--marigold-bright)] transition-colors"
+              >
+                {social.label}
+              </a>
+            ))}
+          </div>
         </div>
 
         <div>
@@ -44,10 +49,31 @@ export function Footer() {
             Explore
           </div>
           <ul className="space-y-2.5 text-sm text-[var(--cream)]/70">
-            <li><a href="#about" className="hover:text-[var(--marigold-bright)] transition-colors">About us</a></li>
-            <li><a href="#programs" className="hover:text-[var(--marigold-bright)] transition-colors">Our programs</a></li>
-            <li><a href="#impact" className="hover:text-[var(--marigold-bright)] transition-colors">Impact</a></li>
-            <li><a href="#donate" className="hover:text-[var(--marigold-bright)] transition-colors">Donate</a></li>
+            <li>
+              <a href="#about" className="hover:text-[var(--marigold-bright)] transition-colors">
+                About us
+              </a>
+            </li>
+            <li>
+              <a href="#programs" className="hover:text-[var(--marigold-bright)] transition-colors">
+                What we do
+              </a>
+            </li>
+            <li>
+              <a href="#work" className="hover:text-[var(--marigold-bright)] transition-colors">
+                Recent work
+              </a>
+            </li>
+            <li>
+              <a href="#partners" className="hover:text-[var(--marigold-bright)] transition-colors">
+                Partners
+              </a>
+            </li>
+            <li>
+              <a href="#involved" className="hover:text-[var(--marigold-bright)] transition-colors">
+                Get involved
+              </a>
+            </li>
           </ul>
         </div>
 
@@ -56,16 +82,32 @@ export function Footer() {
             Reach us
           </div>
           <ul className="space-y-2.5 text-sm text-[var(--cream)]/70">
-            <li>House 14, College Road, Garden Town, Lahore</li>
-            <li>+92 42 3586 2201</li>
-            <li>reach@youngmeritwelfare.org</li>
+            <li>{contact.office}</li>
+            <li>
+              <a
+                href={contact.phoneHref}
+                className="hover:text-[var(--marigold-bright)] transition-colors"
+              >
+                {contact.phone}
+              </a>
+            </li>
+            <li>
+              <a
+                href={`mailto:${contact.email}`}
+                className="hover:text-[var(--marigold-bright)] transition-colors break-all"
+              >
+                {contact.email}
+              </a>
+            </li>
           </ul>
         </div>
       </div>
 
       <div className="max-w-6xl mx-auto px-6 mt-14 pt-6 border-t border-[var(--cream)]/10 flex flex-col sm:flex-row justify-between gap-3 text-xs text-[var(--cream)]/40">
-        <span>© {new Date().getFullYear()} Young Merit Welfare Foundation, Lahore.</span>
-        <span>Registered non-profit, Punjab, Pakistan.</span>
+        <span>
+          © {new Date().getFullYear()} {foundation.name}, {foundation.city}.
+        </span>
+        <span>Non-profit organisation · Punjab, Pakistan.</span>
       </div>
     </footer>
   )

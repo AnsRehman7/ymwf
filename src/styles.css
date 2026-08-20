@@ -25,6 +25,12 @@ body {
   font-family: 'Fraunces', Georgia, serif;
 }
 
+/* Urdu copy renders in Nastaliq, which needs extra line height to breathe. */
+[lang='ur'] {
+  font-family: 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', serif;
+  line-height: 2.1;
+}
+
 code {
   font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
 }

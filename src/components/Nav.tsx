@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
+import { foundation } from '@/data/content'
 
 const LINKS = [
   { href: '#about', label: 'About' },
-  { href: '#programs', label: 'Programs' },
-  { href: '#impact', label: 'Impact' },
-  { href: '#voices', label: 'Voices' },
+  { href: '#programs', label: 'What we do' },
+  { href: '#work', label: 'Recent work' },
+  { href: '#partners', label: 'Partners' },
   { href: '#contact', label: 'Contact' },
 ]
 
@@ -51,10 +52,12 @@ export function Nav() {
             </a>
           ))}
           <a
-            href="#donate"
+            href={foundation.registerUrl}
+            target="_blank"
+            rel="noreferrer noopener"
             className="rounded-full bg-[var(--terracotta)] text-[var(--cream)] text-sm font-semibold px-5 py-2.5 shadow-[0_8px_20px_-8px_rgba(181,80,47,0.6)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_12px_24px_-8px_rgba(181,80,47,0.7)]"
           >
-            Support the work
+            Register now
           </a>
         </nav>
 
@@ -89,11 +92,13 @@ export function Nav() {
             </a>
           ))}
           <a
-            href="#donate"
+            href={foundation.registerUrl}
+            target="_blank"
+            rel="noreferrer noopener"
             onClick={() => setOpen(false)}
             className="mt-2 rounded-full bg-[var(--terracotta)] text-[var(--cream)] text-sm font-semibold px-5 py-2.5 text-center"
           >
-            Support the work
+            Register now
           </a>
         </div>
       </div>

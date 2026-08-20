@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useReveal } from '@/hooks/useReveal'
+import { contact } from '@/data/content'
 
 function encode(data: Record<string, string>) {
   return Object.entries(data)
@@ -41,20 +42,44 @@ export function Contact() {
               Talk to us
             </span>
             <h2 className="font-display mt-4 text-4xl md:text-[3rem] leading-[1.08] text-[var(--forest-deep)]">
-              Questions before you give?
+              Questions before you reach out?
             </h2>
             <div className="mt-8 space-y-4 text-sm text-[var(--ink)]/70">
               <div>
                 <div className="font-semibold text-[var(--ink)]">Office</div>
-                <div>House 14, College Road, Garden Town, Lahore</div>
+                <div>{contact.office}</div>
               </div>
               <div>
-                <div className="font-semibold text-[var(--ink)]">Phone</div>
-                <div>+92 42 3586 2201</div>
+                <div className="font-semibold text-[var(--ink)]">Mobile</div>
+                <a href={contact.phoneHref} className="hover:text-[var(--forest)] transition-colors">
+                  {contact.phone}
+                </a>
               </div>
               <div>
-                <div className="font-semibold text-[var(--ink)]">Email</div>
-                <div>reach@youngmeritwelfare.org</div>
+                <div className="font-semibold text-[var(--ink)]">Foundation email</div>
+                <a
+                  href={`mailto:${contact.email}`}
+                  className="hover:text-[var(--forest)] transition-colors break-all"
+                >
+                  {contact.email}
+                </a>
+              </div>
+              <div>
+                <div className="font-semibold text-[var(--ink)]">IT department head</div>
+                <a
+                  href={`mailto:${contact.itEmail}`}
+                  className="hover:text-[var(--forest)] transition-colors break-all"
+                >
+                  {contact.itEmail}
+                </a>
+              </div>
+              <div className="pt-4 border-t border-[var(--line)]">
+                <div className="font-semibold text-[var(--ink)]">
+                  Speaking requests &amp; inquiries
+                </div>
+                <div>
+                  {contact.speakingContact} · {contact.phone}
+                </div>
               </div>
             </div>
           </div>

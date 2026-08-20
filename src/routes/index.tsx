@@ -4,7 +4,8 @@ import { Hero } from '@/components/Hero'
 import { About } from '@/components/About'
 import { Programs } from '@/components/Programs'
 import { Impact } from '@/components/Impact'
-import { Voices } from '@/components/Voices'
+import { Updates } from '@/components/Updates'
+import { Partners } from '@/components/Partners'
 import { Donate } from '@/components/Donate'
 import { Contact } from '@/components/Contact'
 import { Footer } from '@/components/Footer'
@@ -22,7 +23,8 @@ function Home() {
         <About />
         <Programs />
         <Impact />
-        <Voices />
+        <Updates />
+        <Partners />
         <Donate />
         <Contact />
       </main>

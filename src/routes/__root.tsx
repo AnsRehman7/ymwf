@@ -18,7 +18,7 @@ export const Route = createRootRoute({
       {
         name: 'description',
         content:
-          'Young Merit Welfare Foundation is a community-driven charity in Lahore working on education, healthcare access, and relief for underserved families across Punjab.',
+          'Young Merit Welfare Foundation, Lahore is a non-profit organization dedicated to supporting underprivileged communities through education, healthcare, and social welfare services.',
       },
     ],
     links: [
@@ -26,7 +26,7 @@ export const Route = createRootRoute({
       { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: 'anonymous' },
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&display=swap',
+        href: 'https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Noto+Nastaliq+Urdu:wght@400;600&family=Work+Sans:wght@400;500;600&display=swap',
       },
     ],
   }),
